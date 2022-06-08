@@ -7,16 +7,20 @@ USE db_escola;
 -- criar tabela --
 
 CREATE TABLE tb_professor (
-    nome VARCHAR(100) NOT NULL,
-    cpf CHAR(11) NOT NULL,
-    email VARCHAR(255) NOT NULL
+    nome VARCHAR(100)  NOT NULL,
+    cpf CHAR(11) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL
 );
+
+-- Excluir tabela --
+DROP TABLE tb_professor;
+
 
 CREATE TABLE tb_aluno (
     nome VARCHAR(100) NOT NULL,
-    cpf CHAR(11) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    matricula VARCHAR(10) NOT NULL
+    cpf CHAR(11) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    matricula VARCHAR(10) UNIQUE NOT NULL
 );
 
 -- inserir na tabela --
@@ -30,3 +34,6 @@ INSERT INTO tb_professor (nome, email, cpf)
 VALUES (
     'Bruno', 'bruno@email.com', '11122233345'
 );
+
+-- Selecionar dados--
+SELECT * FROM tb_professor;
