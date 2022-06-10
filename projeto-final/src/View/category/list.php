@@ -10,15 +10,19 @@
             <td>#ID</td>
             <td>Nome</td>
             <td>Descrição</td>
+            <td>Ações</td>
         </tr>
     </thead>
     <tbody>
         <?php
         while ($category = $data->fetch(\PDO::FETCH_ASSOC)) {
+            extract($category);
+
             echo "<tr>
-                    <td>{$category['id']}</td>
-                    <td>{$category['name']}</td>
-                    <td>{$category['description']}</td>
+                    <td>{$id}</td>
+                    <td>{$name}</td>
+                    <td>{$description}</td>
+                    <td><a href='/categorias/excluir?id={$id}' class='btn btn-danger btn-sm'>Excluir</a></td>
                   </tr>";
         }
         ?>

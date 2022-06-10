@@ -41,4 +41,18 @@ class CategoryController extends AbstractController
     {
         parent::render('category/edit');
     }
+
+    public function removeAction(): void
+    {
+        $conn = Connection::getConnection();
+
+        $id = $_GET['id'];
+
+        $query = "DELETE FROM tb_category WHERE id='{$id}'";
+
+        $result = $conn->prepare($query);
+        $result->execute();
+
+        echo 'Categoria excluida!';
+    }
 }
