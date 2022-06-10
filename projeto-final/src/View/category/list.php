@@ -22,7 +22,8 @@
                     <td>{$id}</td>
                     <td>{$name}</td>
                     <td>{$description}</td>
-                    <td><a href='/categorias/excluir?id={$id}' class='btn btn-danger btn-sm'>Excluir</a></td>
+                    <td><a href='/categorias/editar?id={$id}' class='btn btn-warning btn-sm'>Editar</a>
+                    <a href='/categorias/excluir?id={$id}' class='btn btn-danger btn-sm'>Excluir</a></td>
                   </tr>";
         }
         ?>

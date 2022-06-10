@@ -37,9 +37,32 @@ class CategoryController extends AbstractController
         parent::render('category/add');
     }
 
-    public function editAction(): void
+    public function updateAction(): void
     {
-        parent::render('category/edit');
+        $id = $_GET['id'];
+
+        $conn = Connection::getConnection();
+
+        $query = "SELECT * FROM tb_category WHERE id='{$id}'";
+
+        $result = $conn->prepare($query);
+        $result->execute();
+
+        $data = $result->fetch(\PDO::FETCH_ASSOC);
+
+        if ($_POST) {
+            $newName = $_POST['name'];
+            $newDescription = $_POST['description'];
+
+            $quereUpdate = "UPDATE tb_category SET name='{$newName}', description='{$newDescription}' WHERE id='{$id}'";
+
+            $result = $conn->prepare($quereUpdate);
+            $result->execute();
+
+            echo "Catagoria atualizada com sucesso!";
+        }
+
+        parent::render('category/edit', $data);
     }
 
     public function removeAction(): void
