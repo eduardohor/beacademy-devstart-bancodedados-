@@ -21,6 +21,19 @@ class CategoryController extends AbstractController
 
     public function addAction(): void
     {
+        if ($_POST) {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+
+            $query = "INSERT INTO tb_category (name, description) VALUES('{$name}', '{$description}')";
+
+            $conn = Connection::getConnection();
+
+            $result = $conn->prepare($query);
+            $result->execute();
+
+            echo 'Categoria cadastrada com sucesso!';
+        }
         parent::render('category/add');
     }
 

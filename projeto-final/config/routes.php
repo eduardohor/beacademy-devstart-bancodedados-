@@ -17,7 +17,8 @@ $routes = [
     '/' => createRouter(IndexController::class, 'indexAction'),
     '/produtos' => createRouter(ProductController::class, 'listAction'),
     '/produto-novo' => createRouter(ProductController::class, 'addAction'),
-    '/categorias' => createRouter(CategoryController::class, 'listAction')
+    '/categorias' => createRouter(CategoryController::class, 'listAction'),
+    '/categorias/nova' => createRouter(CategoryController::class, 'addAction')
 ];
 
 return $routes;
