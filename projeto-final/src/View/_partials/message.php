@@ -1,4 +1,5 @@
 <div class="alert alert-seccess">
-    <?php echo $message; ?>
-    <a href="/" class="btn btn-outline-dark">Ok</a>
+    <?php echo $message;
+    var_dump($route); ?>
+    <a href="<?php $route ?>" class="btn btn-outline-dark">Ok</a>
 </div>
